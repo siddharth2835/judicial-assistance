@@ -4,10 +4,15 @@ from pymongo import MongoClient
 from sentence_transformers import SentenceTransformer
 import streamlit_authenticator as stauth
 
-MONGO_URI   = "mongodb://localhost:27017/"      
-DB_NAME     = "chatbot_db"                              
+MONGO_URI = st.secrets["MONGO_URI"]         # set in Cloud → Secrets
+client     = MongoClient(MONGO_URI, serverSelectionTimeoutMS=8000)
 
-client = MongoClient(MONGO_URI)
+try:
+    client.admin.command("ping")            # fast connectivity check
+except Exception as e:
+    st.error(f"MongoDB connection failed: {e}")
+    st.stop()      
+DB_NAME     = "chatbot_db"                              
 db      = client[DB_NAME]
 qa_col  = db["sq_ans"]
 user_col= db["users"]
