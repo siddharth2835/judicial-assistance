@@ -1,0 +1,8 @@
+streamlit==1.34.0
+streamlit-authenticator==0.2.3
+PyYAML
+bcrypt==4.0.1
+pymongo[srv]==4.6.3
+sentence-transformers==2.6.1    
+numpy
+
