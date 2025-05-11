@@ -47,7 +47,7 @@ def add_user(username, name, email, raw_pwd):
     )
 
 # ----------------------- 3. PAGE CONFIG --------------------
-st.set_page_config(page_title="LegalBot", page_icon="⚖️", layout="wide")
+st.set_page_config(page_title="JAI - Judicial Assistance Interface", page_icon="⚖️", layout="wide")
 
 # ----------------------- 4. AUTHENTICATION FLOW ------------
 config = fetch_credentials()
