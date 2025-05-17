@@ -102,7 +102,7 @@ with st.sidebar.expander("Logout"):
 st.sidebar.success(f"Logged in as **{name}**")
 
 # ----------------------- 5. LOAD MODEL & DATA -------------
-@st.cache_resource
+@st.cache_resource(ttl=3000)
 def load_model():
     return SentenceTransformer("paraphrase-MiniLM-L3-v2")
 
